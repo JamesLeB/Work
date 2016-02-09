@@ -384,6 +384,8 @@
 	#mainViewer
 	{
 		border: 5px ridge yellow;
+		margin-left: 30px;
+		margin-top: 20px;
 	}
 	#viewerControls
 	{
@@ -392,6 +394,8 @@
 		height: 300px;
 		width:  500px;
 		background: lightBlue;
+		margin-right: 30px;
+		margin-top: 20px;
 	}
 	#viewerControls > div:nth-child(1) 
 	{
