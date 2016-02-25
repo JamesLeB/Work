@@ -2,7 +2,10 @@
 
 import websocket
 
+out_file = open('out_file','w')
+
 def on_message(ws, message):
+	out_file.write(message+'\n')
 	print message
 	print 
 
