@@ -1,13 +1,20 @@
 #!/usr/bin/python
 
 import websocket
+import json
 
-out_file = open('out_file','w')
+#out_file = open('out_file','w')
+
+a = 1
 
 def on_message(ws, message):
-	out_file.write(message+'\n')
-	print message
-	print 
+	global a
+	a += 1
+#	out_file.write(message+'\n')
+#	print message
+	j = json.loads(message)
+	print str(a) +' ' + j['type']
+	print
 
 def on_error(ws, error):
 	print error
