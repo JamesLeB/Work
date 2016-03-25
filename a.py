@@ -10,11 +10,26 @@ a = 1
 def on_message(ws, message):
 	global a
 	a += 1
+
 #	out_file.write(message+'\n')
 #	print message
+
 	j = json.loads(message)
-	print str(a) +' ' + j['type']
-	print
+	mtype = j['type']
+
+	if mtype == 'open':
+		print str(a) + ' OPEN!!'
+	elif mtype == 'done':
+		print str(a) + ' DONE!!'
+	elif mtype == 'received':
+		print str(a) + ' RECEIVED!!'
+	elif mtype == 'match':
+		print str(a) + ' MATCH!!'
+	else:
+		print str(a) +' Unknown!! ' + mtype
+		ws.close()
+	
+	print ''
 
 def on_error(ws, error):
 	print error
@@ -34,4 +49,5 @@ def s():
 
 print "Well now what?"
 
-s()
+import b
+#s()
