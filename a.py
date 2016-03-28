@@ -49,5 +49,5 @@ def s():
 
 print "Well now what?"
 
-import b
-#s()
+#import b
+s()
