@@ -278,7 +278,13 @@
 
         gl.drawElements(gl.TRIANGLES, grootIndex.numItems, gl.UNSIGNED_SHORT, 0);
 
+
+
+        mat4.translate(mvMatrix, [3.0, 0.0, 0.0]);
+        setMatrixUniforms();
+        gl.drawElements(gl.TRIANGLES, grootIndex.numItems, gl.UNSIGNED_SHORT, 0);
 		mvPopMatrix();
+
     }
 
 	var lastTime = 0;
