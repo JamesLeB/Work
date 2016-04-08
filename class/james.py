@@ -4,21 +4,23 @@ import requests
 import json
 
 class james:
-
-
-	kara = 'wife'
 	book = ''
 	book_cur = 0
 
 	def __init__(self):
-		self.kara = 'awesome wife'
 		f = open('book','r')
 		b = f.read()
 
 		self.book = json.loads(b)
 
 	def test(self):
-		print 'james function loaded ahdhd'
+		print self.book
+
+	def loadBook(self):
+		bids = self.book['bids']
+		asks = self.book['asks']
+		print 'loading bids'
+		print 'loading asks'
 
 	def getBook(self):
 		url = 'https://api.exchange.coinbase.com/products/BTC-USD/book?level=3'
