@@ -47,7 +47,6 @@ def s():
 
 	ws.run_forever()
 
-print "Well now what?"
+print "Stating websocket?"
 
-#import b
-s()
+#s()
