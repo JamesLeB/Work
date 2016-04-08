@@ -1,0 +1,4 @@
+wget http://bootstrap.pypa.io/get-pip.py
+python get-pip-py
+pip install websocket-client
+pip install request
