@@ -1,0 +1,59 @@
+Install debian
+
+# Enable root ssh
+/etc/ssh/sshd_config PermitRootLogin yes
+
+# Install vim
+apt-get install vim
+
+# Add color to bash
+edit ~/.bashrc
+
+# Install apache2
+apt-get install apache2
+
+# enable httaccess files
+/etc/apache2/apache2.conf
+	allow overide
+
+# Create link to web root
+/var/www/html
+
+# Create group to write to www folder
+
+# Addjust www folder for group
+
+# Install MySQL
+apt-get install mysql-server
+mysql_secure_installation
+
+create user
+	CREATE USER 'james'@'%' IDENTIFIED BY 'password'
+	GRANT ALL PRIVILEGES ON db.* TO 'james'@'%'
+	FLUSH PRIVILEGES
+	REVOKE [permision] ON db.* FROM 'james'@'%'
+	DROP USER 'james'@'%'
+
+edit /etc/mysql/my.cnf
+	# bind-address   = 127.0.0.1    comment out line
+
+# Setup PHP
+apt-get install php5 php5-mysql
+
+# Install Git
+apt-get install git
+	git config --global user.name "JamesLeB"
+	git config --global user.email "james@jamesleblanc.org"
+
+# Install vsftpd
+apt-get install vsftpd
+/etc/vsftpd.conf
+
+# Configure vim
+copy james.vim to /usr/share/vim/vim74/colors
+edit /etc/vim/vimrc
+	set tabstop=4
+	set nobackup
+	set sw=4
+	set number
+	colors james
