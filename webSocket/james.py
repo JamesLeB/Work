@@ -19,10 +19,11 @@ class james:
 	db = ''
 
 	def __init__(self):
-		f = open('book','r')
-		b = f.read()
+		#f = open('book','r')
+		#b = f.read()
 
-		self.book = json.loads(b)
+		#self.book = json.loads(b)
+		print 'yay me'
 
 	def test(self):
 		print self.book

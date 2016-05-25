@@ -4,7 +4,7 @@ import websocket
 import json
 
 import sys
-sys.path.append('class')
+#sys.path.append('class')
 from james import *
 
 #out_file = open('out_file','w')
