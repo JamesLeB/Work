@@ -54,6 +54,6 @@ def s():
 print "Stating websocket?"
 
 j = james()
-#j.getBook()
+j.getBook()
 
 #s()

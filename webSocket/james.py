@@ -1,6 +1,6 @@
 # Default functions
 
-import request
+import requests
 import json
 import MySQLdb
 
