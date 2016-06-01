@@ -43,8 +43,8 @@ def on_message(ws, message):
 		#print ''
 		#out_file.write(message+'\n')
 
-		cur.execute("insert into trades (id,side,price,size,dollars) values (%d,'%s',%f,%f,%f)" % (a,j['side'],float(j['price']),float(j['size']),dollar))
-		db.commit()
+		#cur.execute("insert into trades (id,side,price,size,dollars) values (%d,'%s',%f,%f,%f)" % (a,j['side'],float(j['price']),float(j['size']),dollar))
+		#db.commit()
 
 	#else:
 		#print str(a) +' Unknown!! ' + mtype
