@@ -70,7 +70,8 @@ def s():
 
 print "Stating websocket?"
 
-#j = james()
-#j.getBook()
+j = james()
+test = j.getBook()
+print test
 
-s()
+#s()
