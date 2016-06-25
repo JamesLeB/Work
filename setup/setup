@@ -57,3 +57,6 @@ edit /etc/vim/vimrc
 	set sw=4
 	set number
 	colors james
+
+# Setup python
+python get-pip.py

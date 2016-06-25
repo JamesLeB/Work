@@ -23,10 +23,11 @@ class james:
 		#b = f.read()
 
 		#self.book = json.loads(b)
-		print 'yay me'
+		print 'Creating james object'
 
 	def test(self):
-		print self.book
+		#print self.book
+		print "this is a test"
 
 	def openDB(self):
 		# Connect to Database
@@ -63,8 +64,16 @@ class james:
 
 		print 'loading asks'
 
-	def getBook(self):
+	def downloadbook(self):
 		url = 'https://api.exchange.coinbase.com/products/BTC-USD/book?level=3'
+		response = requests.get(url)
+		text = response.content
+		f = open('book','w')
+		f.write(text)
+		print 'Book saved to disk'
+
+	def getBook(self):
+		#url = 'https://api.exchange.coinbase.com/products/BTC-USD/book?level=3'
 		#response = requests.get(url)
 		#text = response.content
 
@@ -73,29 +82,29 @@ class james:
 		#f.write(text)
 
 		# Read book from disk
-		f = open('book','r')
-		a = f.read()
-		j = json.loads(a)
-		bids = j['bids']
-		asks = j['asks']
-		sequence = j['sequence']
+		#f = open('book','r')
+		#a = f.read()
+		#j = json.loads(a)
+		#bids = j['bids']
+		#asks = j['asks']
+		#sequence = j['sequence']
 
-		print type(j)
-		print type(bids)
+		#print type(j)
+		#print type(bids)
 
-		f1 = open('bids.csv','w')
-		for l in bids:
-			ll = ','.join(l)
-			f1.write(ll+"\n")
-			print ll
-		f1.close()
+		#f1 = open('bids.csv','w')
+		#for l in bids:
+		#	ll = ','.join(l)
+		#	f1.write(ll+"\n")
+		#	print ll
+		#f1.close()
 
-		f2 = open('asks.csv','w')
-		for l in asks:
-			ll = ','.join(l)
-			f2.write(ll+"\n")
-			print ll
-		f2.close()
+		#f2 = open('asks.csv','w')
+		#for l in asks:
+		#	ll = ','.join(l)
+		#	f2.write(ll+"\n")
+		#	print ll
+		#f2.close()
 
 		#keys = bids.keys()
 		#print keys
@@ -106,7 +115,7 @@ class james:
 		#f2 = open('asks.json','w')
 		#f2.write(json.dumps(asks))
 
-		print sequence
+		#print sequence
 
 		#j = json.loads(response.content)
 
@@ -114,8 +123,8 @@ class james:
 		#for p in j:
 		#	print p['display_name']
 
-		print 'Book loaded'
-		return 'book return'
+		print 'Finished getting Book'
+		return 'Return from getting book function'
 
 	# Read book
 	def rb(self):

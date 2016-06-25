@@ -8,25 +8,34 @@ import sys
 #sys.path.append('class')
 from james import *
 
-#out_file = open('out_file','w')
+out_file = open('out_file','w')
 
 a = 1
+j = james()
 
-db = MySQLdb.connect(host='localhost',user='james',passwd='sorcier',db='dev')
-cur = db.cursor()
+
+#db = MySQLdb.connect(host='localhost',user='james',passwd='sorcier',db='dev')
+#cur = db.cursor()
 
 def on_message(ws, message):
 	global a
 	global db
 	global cur
+	global j
+	
+	if a == 1:
+		print 'First message recieved'
+
+	if a == 10:
+		print 'Stream running'
+		j.downloadbook()
 
 	a += 1
 
-	#out_file.write(message+'\n')
-	#print message
+	out_file.write(message+'\n')
 
-	j = json.loads(message)
-	mtype = j['type']
+	#j = json.loads(message)
+	#mtype = j['type']
 
 	#if mtype == 'open':
 		#print str(a) + ' OPEN!!'
@@ -35,11 +44,11 @@ def on_message(ws, message):
 	#elif mtype == 'received':
 		#print str(a) + ' RECEIVED!!'
 	#elif mtype == 'match':
-	if mtype == 'match':
+	#if mtype == 'match':
 		#print str(a) + ' MATCH!!'
 		#print message
-		dollar = float(j['price']) * float(j['size'])
-		print str(a) + ' ' + j['side'] + ' : ' + j['price'] + ' : ' + j['size'] + ' : ' + str(dollar)
+		#dollar = float(j['price']) * float(j['size'])
+		#print str(a) + ' ' + j['side'] + ' : ' + j['price'] + ' : ' + j['size'] + ' : ' + str(dollar)
 		#print ''
 		#out_file.write(message+'\n')
 
@@ -68,10 +77,4 @@ def s():
 
 	ws.run_forever()
 
-print "Stating websocket?"
-
-j = james()
-test = j.getBook()
-print test
-
-#s()
+print "Init Script done"
