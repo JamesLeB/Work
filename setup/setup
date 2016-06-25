@@ -60,3 +60,8 @@ edit /etc/vim/vimrc
 
 # Setup python
 python get-pip.py
+pip install websocket-client
+apt-get install build-essential python-dev libmysqlclient-dev
+pip install MySQL-python
+pip install requests
+
