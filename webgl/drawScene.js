@@ -1,25 +1,45 @@
 
-
 	var zoomLevel = 0;
-	
+	var xRotation = 15;
+	var yRotation = 15;
+	var zRotation = 0;
 
     function drawScene(myObj)
 	{
-	
         gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
         mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, pMatrix);
         mat4.identity(mvMatrix);
 
-		var zAdjustment = (-1 * zoomLevel / 10) - 6;
+		var zAdjustment = (-1 * zoomLevel / 10) - 16;
         mat4.translate(mvMatrix, [0.0, 0.0, zAdjustment]);
 
-		drawObject(myObj);
+        mat4.translate(mvMatrix, [ 0.0, 0.0, -20.0]);
 
+		mat4.rotate(mvMatrix, degToRad(xRotation), [1, 0, 0]);
+		mat4.rotate(mvMatrix, degToRad(yRotation), [0, 1, 0]);
+		mat4.rotate(mvMatrix, degToRad(zRotation), [0, 0, 1]);
+
+		var offset = -8
+        mat4.translate(mvMatrix, [offset, 0.0,offset]);
+
+		var total = 5;
+		var factor = 4;
+
+		var pos = [0.0, 0.0, 0.0];
+
+		for(i=0;i<total;i++)
+		{
+			for(j=0;j<total;j++)
+			{
+				pos = [i*factor, 0.0, j*factor];
+				drawObject(myObj,pos,j);
+			}
+		}
     }
 
-	function drawObject(myObj)
+	function drawObject(myObj,pos,rot)
 	{
 
 		mvPushMatrix();
@@ -30,10 +50,8 @@
         gl.vertexAttribPointer(shaderProgram.vertexColorAttribute, myObj.grootCol.itemSize, gl.FLOAT, false, 0, 0);
 		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, myObj.grootIndex);
 
-		mat4.rotate(mvMatrix, degToRad(myObj.xCubeRot), [1, 0, 0]);
-		mat4.rotate(mvMatrix, degToRad(myObj.yCubeRot), [0, 1, 0]);
-		mat4.rotate(mvMatrix, degToRad(myObj.zCubeRot), [0, 0, 1]);
-        mat4.translate(mvMatrix, [0.0, 0.0, 0.0]);
+        mat4.translate(mvMatrix,pos);
+		mat4.rotate(mvMatrix, degToRad(rot*5), [0, 0, 1]);
         setMatrixUniforms();
 
         gl.drawElements(gl.TRIANGLES, myBox.grootIndex.numItems, gl.UNSIGNED_SHORT, 0);

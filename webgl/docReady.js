@@ -1,14 +1,5 @@
 
-
-	function tick()
-	{
-		requestAnimFrame(tick);
-		drawScene(myBox);
-		//animate();
-	}
-
 	var myBox;
-
     function webGLStart()
 	{
         var canvas = document.getElementById("mainViewer");
@@ -19,6 +10,12 @@
         gl.enable(gl.DEPTH_TEST);
 		tick();
     }
+	function tick()
+	{
+		requestAnimFrame(tick);
+		drawScene(myBox);
+		//animate();
+	}
 
 	$(document).ready(function()
 	{
@@ -26,22 +23,22 @@
 		$('#slider1').slider({
 			slide: function(event, ui){
 				var val1 = ui.value;
-				myBox.xCubeRot = Math.round(val1 * 360 * .01);
-				$('#viewerControls > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)').html(myBox.xCubeRot);
+				xRotation = Math.round(val1 * 360 * .01);
+				$('#viewerControls > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)').html(xRotation);
 			}
 		});
 		$('#slider2').slider({
 			slide: function(event, ui){
 				var val1 = ui.value;
-				myBox.yCubeRot = Math.round(val1 * 360 * .01);
-				$('#viewerControls > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)').html(myBox.yCubeRot);
+				yRotation = Math.round(val1 * 360 * .01);
+				$('#viewerControls > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)').html(yRotation);
 			}
 		});
 		$('#slider3').slider({
 			slide: function(event, ui){
 				var val1 = ui.value;
-				myBox.zCubeRot = Math.round(val1 * 360 * .01);
-				$('#viewerControls > div:nth-child(2) > div:nth-child(3) > div:nth-child(2)').html(myBox.zCubeRot);
+				zRotation = Math.round(val1 * 360 * .01);
+				$('#viewerControls > div:nth-child(2) > div:nth-child(3) > div:nth-child(2)').html(zRotation);
 			}
 		});
 		$('#slider4').slider({
