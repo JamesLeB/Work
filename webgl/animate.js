@@ -1,4 +1,5 @@
 
+
 	var lastTime = 0;
 
 	function animate()
