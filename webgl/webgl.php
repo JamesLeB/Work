@@ -5,7 +5,9 @@
 <script type="text/javascript" src="webgl-utils.js"></script>
 
 <script src='utility.js'></script>
+<script src='initBuffers.js'></script>
 <script src='groot.js'></script>
+<script src='cub.js'></script>
 <script src='drawScene.js'></script>
 <script src='docReady.js'></script>
 

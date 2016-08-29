@@ -1,11 +1,11 @@
 
-	var myBox;
+	var buffers
     function webGLStart()
 	{
         var canvas = document.getElementById("mainViewer");
         initGL(canvas);
         initShaders();
-        myBox = initBuffers();
+        buffers = initBuffers();
         gl.clearColor(0.0, 0.0, 0.0, 1.0);
         gl.enable(gl.DEPTH_TEST);
 		tick();
@@ -13,7 +13,7 @@
 	function tick()
 	{
 		requestAnimFrame(tick);
-		drawScene(myBox);
+		drawScene();
 		//animate();
 	}
 

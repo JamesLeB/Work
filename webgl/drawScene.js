@@ -4,7 +4,7 @@
 	var yRotation = 15;
 	var zRotation = 0;
 
-    function drawScene(myObj)
+    function drawScene()
 	{
         gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -34,7 +34,14 @@
 			for(j=0;j<total;j++)
 			{
 				pos = [i*factor, 0.0, j*factor];
-				drawObject(myObj,pos,j);
+				if(i==1 && j==2)
+				{
+					drawObject(buffers[1],pos,j);
+				}
+				else
+				{
+					drawObject(buffers[0],pos,j);
+				}
 			}
 		}
     }

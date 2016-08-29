@@ -1,15 +1,14 @@
 
 
-    function initBuffers()
+	function thing1()
 	{
-
 	    var grootPos;
    		var grootCol;
     	var grootIndex;
 
         grootPos = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, grootPos);
-        vertices = [
+        var vertices = [
 			//Front face
             -1.0, -1.0,  1.0,
              1.0, -1.0,  1.0,
@@ -41,7 +40,6 @@
             -1.0,  1.0,  1.0,
             -1.0,  1.0, -1.0,
         ];
-
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
         grootPos.itemSize = 3;
         grootPos.numItems = 24;
@@ -56,7 +54,7 @@
 		var c5 = [0.0, 0.3, 0.9, 1.0];
 		var c6 = [0.0, 0.3, 0.9, 1.0];
 
-        colors = [];
+        var colors = [];
 		colors.push(c1);
 		colors.push(c2);
 		colors.push(c3);
