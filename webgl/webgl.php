@@ -10,12 +10,14 @@
 <script type="text/javascript" src="webgl-utils.js"></script>
 
 <!-- LOAD MY JS CODE --!>
+<!--
 <script src='utility.js'></script>
 <script src='initBuffers.js'></script>
 <script src='groot.js'></script>
 <script src='cub.js'></script>
 <script src='drawScene.js'></script>
 <script src='docReady.js'></script>
+--!>
 
 <!-- FRAGMENT SHADER --!>
 <script id="shader-fs" type="x-shader/x-fragment">
@@ -41,41 +43,14 @@
     }
 </script>
 
+<!-- LOAD HTML --!>
+<?php
+	#$main = file_get_contents('main.html');
+	$main = file_get_contents('temp.html');
+?>
 
 <!-- HTML --!>
-<canvas id="mainViewer" width="500" height="400"></canvas>
-<div id='viewerControls'>
-	<div>
-		<div>
-			<div id='slider1' class='slider'></div>
-			<div id='slider4' class='slider'></div>
-		</div>
-		<div>
-			<div id='slider2' class='slider'></div>
-			<div id='slider5' class='slider'></div>
-		</div>
-		<div>
-			<div id='slider3' class='slider'></div>
-			<div id='slider6' class='slider'></div>
-		</div>
-	</div>
-	<div>
-		<div>
-			<div>X Rot</div>
-			<div>0</div>
-			<div>Zoom</div>
-			<div>0</div>
-		</div>
-		<div>
-			<div>Y Rot</div>
-			<div>0</div>
-		</div>
-		<div>
-			<div>Z Rot</div>
-			<div>0</div>
-		</div>
-	</div>
-</div>
+<?php echo $main ?>
 
 <!-- LOAD MY CSS --!>
 <style>
