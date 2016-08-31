@@ -1,1 +1,85 @@
-hello
+<!--
+<table id='mainView'>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>5</td>
+		<td>6</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td>8</td>
+		<td>9</td>
+	</tr>
+</table>
+
+<style>
+	#mainView
+	{
+		border:1px solid red;
+		width:95%;
+		height:95%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#mainView tr:nth-child(1) td:nth-child(2)
+	{
+		border:1px solid blue;
+		background: yellow;
+		width: 50%;
+	}
+</style>
+--!>
+<div id='main'>
+	<table id='mainView'>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><div id='vLeft'></div></td>
+			<td><div id='vCenter'></div></td>
+			<td><div id='vRight'></div></td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>8</td>
+			<td>9</td>
+		</tr>
+	</table>
+</div>
+<style>
+	#main{
+		background: lightgray;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	#mainView{
+		background: yellow;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#vCenter{
+		background: blue;
+		border: 1px solid black;
+		height: 50px;
+		width: 100px;
+	}
+	#vLeft{
+		background: blue;
+		border: 1px solid black;
+		height: 50px;
+		width: 50px;
+	}
+	#vRight{
+		background: blue;
+		border: 1px solid black;
+		height: 50px;
+		width: 50px;
+	}
+</style>
