@@ -1,85 +1,63 @@
-<!--
-<table id='mainView'>
-	<tr>
-		<td>1</td>
-		<td>2</td>
-		<td>3</td>
-	</tr>
-	<tr>
-		<td>4</td>
-		<td>5</td>
-		<td>6</td>
-	</tr>
-	<tr>
-		<td>7</td>
-		<td>8</td>
-		<td>9</td>
-	</tr>
-</table>
-
-<style>
-	#mainView
-	{
-		border:1px solid red;
-		width:95%;
-		height:95%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	#mainView tr:nth-child(1) td:nth-child(2)
-	{
-		border:1px solid blue;
-		background: yellow;
-		width: 50%;
-	}
-</style>
---!>
 <div id='main'>
-	<table id='mainView'>
+	<table id='mainTable'>
 		<tr>
-			<td>1</td>
-			<td>2</td>
-			<td>3</td>
+			<td><div id='v1'>
+				<button id='testCall'>GO</button>
+			</div></td>
+			<td><div id='v2'></div></td>
+			<td><div id='v3'></div></td>
 		</tr>
 		<tr>
-			<td><div id='vLeft'></div></td>
-			<td><div id='vCenter'></div></td>
-			<td><div id='vRight'></div></td>
+			<td><div id='v4'></div></td>
+			<td><div id='v5'></div></td>
+			<td><div id='v6'></div></td>
 		</tr>
 		<tr>
-			<td>7</td>
-			<td>8</td>
-			<td>9</td>
+			<td><div id='v7'></div></td>
+			<td><div id='v8'>
+			</div></td>
+			<td><div id='v9'></div></td>
 		</tr>
 	</table>
 </div>
 <style>
 	#main{
+		visibility: hidden;
 		background: lightgray;
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
-	#mainView{
+	#mainTable{
 		background: yellow;
 		margin-left: auto;
 		margin-right: auto;
 	}
-	#vCenter{
-		background: blue;
-		border: 1px solid black;
-		height: 50px;
-		width: 100px;
+	#v5{
+		background: lightblue;
 	}
-	#vLeft{
+	#v4{
 		background: blue;
 		border: 1px solid black;
-		height: 50px;
 		width: 50px;
+		height: 50px;
 	}
-	#vRight{
+	#v6{
 		background: blue;
 		border: 1px solid black;
-		height: 50px;
 		width: 50px;
+		height: 50px;
+	}
+	#v8{
+		background: lightgray;
+		border: 1px solid black;
+		height: 100px;
+	}
+	#mainViewer
+	{
+		border: 5px ridge gray;
+	}
+	#slider1
+	{
+		margin: 20px;
 	}
 </style>

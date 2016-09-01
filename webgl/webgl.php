@@ -11,13 +11,13 @@
 		<script type="text/javascript" src="webgl-utils.js"></script>
 		
 		<!-- LOAD MY JS CODE --!>
-		<!--
 		<script src='utility.js'></script>
 		<script src='initBuffers.js'></script>
 		<script src='groot.js'></script>
 		<script src='cub.js'></script>
 		<script src='drawScene.js'></script>
 		<script src='docReady.js'></script>
+		<!--
 		--!>
 
 		<!-- LOAD MY STYLE SHEET --!>
