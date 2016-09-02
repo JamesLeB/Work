@@ -1,10 +1,15 @@
 
 
-	function thing2()
+	function primative_cube()
 	{
 	    var grootPos;
    		var grootCol;
     	var grootIndex;
+/*
+	Basic cube parameters
+	8 points
+	6 colors
+*/
 
         grootPos = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, grootPos);
@@ -94,8 +99,10 @@
 	    myBox.grootPos = grootPos;
    		myBox.grootCol = grootCol;
     	myBox.grootIndex = grootIndex;
+/*
 		myBox.xCubeRot = 15;
 		myBox.yCubeRot = 15;
 		myBox.zCubeRot = 0;
+*/
 		return myBox;
     }
