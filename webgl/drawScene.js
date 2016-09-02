@@ -21,16 +21,16 @@
 		mat4.rotate(mvMatrix, degToRad(yRotation), [0, 1, 0]);
 		mat4.rotate(mvMatrix, degToRad(zRotation), [0, 0, 1]);
 
-		var offset = 0;
-        mat4.translate(mvMatrix, [offset, 0.0,offset]);
+		//var offset = 0;
+        //mat4.translate(mvMatrix, [offset, 0.0,offset]);
 
+		var pos = [0.0, 0.0, 0.0];
+		drawObject(buffers[0],pos,0);
+
+/*
 		var total = 5;
 		var factor = 4;
 
-		var pos = [0.0, 0.0, 0.0];
-
-		drawObject(buffers[0],pos,0);
-/*
 		for(i=0;i<total;i++)
 		{
 			for(j=0;j<total;j++)
