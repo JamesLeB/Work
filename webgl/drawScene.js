@@ -12,16 +12,16 @@
         mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, pMatrix);
         mat4.identity(mvMatrix);
 
-		var zAdjustment = (-1 * zoomLevel / 10) - 16;
+		var zAdjustment = (-1 * zoomLevel / 10) - 8;
         mat4.translate(mvMatrix, [0.0, 0.0, zAdjustment]);
 
-        mat4.translate(mvMatrix, [ 0.0, 0.0, -40.0]);
+        mat4.translate(mvMatrix, [ 0.0, 0.0, 0.0]);
 
 		mat4.rotate(mvMatrix, degToRad(xRotation), [1, 0, 0]);
 		mat4.rotate(mvMatrix, degToRad(yRotation), [0, 1, 0]);
 		mat4.rotate(mvMatrix, degToRad(zRotation), [0, 0, 1]);
 
-		var offset = -8
+		var offset = 0;
         mat4.translate(mvMatrix, [offset, 0.0,offset]);
 
 		var total = 5;
@@ -29,6 +29,8 @@
 
 		var pos = [0.0, 0.0, 0.0];
 
+		drawObject(buffers[0],pos,0);
+/*
 		for(i=0;i<total;i++)
 		{
 			for(j=0;j<total;j++)
@@ -44,6 +46,7 @@
 				}
 			}
 		}
+*/
     }
 
 	function drawObject(myObj,pos,rot)
@@ -58,7 +61,7 @@
 		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, myObj.grootIndex);
 
         mat4.translate(mvMatrix,pos);
-		mat4.rotate(mvMatrix, degToRad(rot*5), [0, 0, 1]);
+		//mat4.rotate(mvMatrix, degToRad(rot*5), [0, 0, 1]);
         setMatrixUniforms();
 
         gl.drawElements(gl.TRIANGLES, myBox.grootIndex.numItems, gl.UNSIGNED_SHORT, 0);
