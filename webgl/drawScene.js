@@ -15,7 +15,7 @@
 		var zAdjustment = (-1 * zoomLevel / 10) - 16;
         mat4.translate(mvMatrix, [0.0, 0.0, zAdjustment]);
 
-        mat4.translate(mvMatrix, [ 0.0, 0.0, -20.0]);
+        mat4.translate(mvMatrix, [ 0.0, 0.0, -40.0]);
 
 		mat4.rotate(mvMatrix, degToRad(xRotation), [1, 0, 0]);
 		mat4.rotate(mvMatrix, degToRad(yRotation), [0, 1, 0]);
