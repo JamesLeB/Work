@@ -29,7 +29,12 @@
 				slide: function(event, ui){
 					var val1 = ui.value;
 					xRotation = Math.round(val1 * 360 * .01);
-					$('#viewerControls > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)').html(xRotation);
+				}
+			});
+			$('#slider2').slider({
+				slide: function(event, ui){
+					var val1 = ui.value;
+					yRotation = Math.round(val1 * 360 * .01);
 				}
 			});
 			$('#main').css('visibility','visible');

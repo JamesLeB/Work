@@ -1,7 +1,7 @@
 
 	var zoomLevel = 0;
-	var xRotation = 15;
-	var yRotation = 15;
+	var xRotation = 0;
+	var yRotation = 0;
 	var zRotation = 0;
 
     function drawScene()
