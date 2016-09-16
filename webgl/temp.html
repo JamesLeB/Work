@@ -20,28 +20,31 @@
 	</table>
 </div>
 <style>
+/* What the hell is the main Viewer...  who adds it?
+	mainViewer gets loaded in the doc ready function
+ */
+	#mainViewer
+	{
+		border: 5px ridge gray;
+	}
 	#main{
 		visibility: hidden;
-		background: lightgray;
+		background: #ebfaeb;
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
 	#mainTable{
-		background: yellow;
 		margin-left: auto;
 		margin-right: auto;
 	}
 	#v5{
-		background: lightblue;
 	}
 	#v4{
-		background: blue;
 		border: 1px solid black;
 		width: 50px;
 		height: 50px;
 	}
 	#v6{
-		background: blue;
 		border: 1px solid black;
 		width: 50px;
 		height: 50px;
@@ -50,10 +53,6 @@
 		background: lightgray;
 		border: 1px solid black;
 		height: 100px;
-	}
-	#mainViewer
-	{
-		border: 5px ridge gray;
 	}
 	#slider1
 	{

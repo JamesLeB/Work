@@ -27,6 +27,9 @@
 		var pos = [0.0, 0.0, 0.0];
 		drawObject(buffers[0],pos,0);
 
+		var pos = [3.0, 0.0, 0.0];
+		drawObject(buffers[0],pos,0);
+
 /*
 		var total = 5;
 		var factor = 4;
