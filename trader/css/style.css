@@ -20,3 +20,9 @@ body
 	font-size: 120%;
 	margin-right: 15px;
 }
+#myClock
+{
+	width: 100px;
+	float: right;
+	text-align: center;
+}

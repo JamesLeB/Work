@@ -12,6 +12,7 @@
 	<link  href='jquery/jquery-ui.css' rel='stylesheet'/>
 
 	<script src='script/ready.js'></script>
+	<script src='script/ticktock.js'></script>
 	<link  href='css/style.css' rel='stylesheet'/>
 
 </head>
@@ -19,7 +20,8 @@
 	<div id='wrapper'>
 		<!-- HEADER --!>
 		<div id='pageHead'>
-			<button>Button1</button>
+			<div id='myClock'>0</div>
+			<button id='buttonStart'>Start</button>
 			<button>Button2</button>
 			<button>Button3</button>
 		</div>
