@@ -32,6 +32,7 @@ def on_message(ws, message):
 
 	a += 1
 
+	print str(a) + ' :: ' + message
 	out_file.write(message+'\n')
 
 	#j = json.loads(message)
@@ -78,3 +79,4 @@ def s():
 	ws.run_forever()
 
 print "Init Script done"
+s()
