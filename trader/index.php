@@ -22,7 +22,7 @@
 		<div id='pageHead'>
 			<div id='myClock'>0</div>
 			<button id='buttonStart'>Start</button>
-			<button>Button2</button>
+			<button id='buttonBook'>Book</button>
 			<button>Button3</button>
 		</div>
 		<!-- BODY --!>
