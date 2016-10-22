@@ -13,6 +13,7 @@
 
 	<script src='script/ready.js'></script>
 	<script src='script/ticktock.js'></script>
+	<script src='script/controls.js'></script>
 	<link  href='css/style.css' rel='stylesheet'/>
 
 </head>
