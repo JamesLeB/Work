@@ -1,0 +1,22 @@
+Repair windows update
+
+download firefox
+	?? May need to download explorer 11
+
+!restart
+
+download KB3102810 update
+	support.microsoft.com/en-us/kb/3102810
+
+!restart
+
+install update
+
+[windowskey] + r
+launch services.msc
+stop Windows Update
+
+delete c:\Windows\SoftwareDistribution
+
+start Windows Update
+
