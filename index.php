@@ -1,4 +1,4 @@
 <?php
-	echo "Hello from work project";
-	header('Location: webgl/webgl.php');
+	header('Location: trader/index.php');
+	#echo "Hello from work project";
 ?>
