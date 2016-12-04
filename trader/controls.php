@@ -5,7 +5,9 @@
 	switch($func)
 	{
 		case 'getBook':
-			$rtn['book'] = 'Load and return book';
+			#file_put_contents('data/kara.txt','kara is outside');
+			$b = file_get_contents('data/book');
+			$rtn['book'] = $b;
 			break;
 		case 'other':
 			$rtn['other'] = 'other';
