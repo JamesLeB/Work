@@ -3,6 +3,7 @@
 import websocket
 import json
 import MySQLdb
+import re
 
 import sys
 #sys.path.append('class')
@@ -55,11 +56,14 @@ def on_message(ws, message):
 		print str(a) + ' MATCH!!'
 		#print message
 		dollar = float(js['price']) * float(js['size'])
+		caltime = js['time']
+		caltime = re.sub('T',' ',caltime)
+		caltime = re.sub('\.\d{6}Z','',caltime)
 		#print str(a) + ' ' + j['side'] + ' : ' + j['price'] + ' : ' + j['size'] + ' : ' + str(dollar)
 		#print ''
-		#out_file.write(message+'\n')
+		out_file.write(message+'\n')
 
-		cur.execute("insert into matchs (id,side,price,size,dollars) values (%d,'%s',%f,%f,%f)" % (a,js['side'],float(js['price']),float(js['size']),dollar))
+		cur.execute("insert into matchs (mIndex,side,price,size,dollars,time) values (%d,'%s',%f,%f,%f,'%s')" % (a,js['side'],float(js['price']),float(js['size']),dollar,caltime))
 		db.commit()
 
 	#else:

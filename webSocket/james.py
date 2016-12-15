@@ -53,7 +53,8 @@ class james:
 	def createMatchdb(self):
 		self.openDB()
 		# Create table
-		self.cur.execute('create table matchs (id int, side varchar(10), price float, size float, dollars float)')
+		self.cur.execute('create table matchs (ID int auto_increment primary key, mIndex int, time datetime, side varchar(10), price float, size float, dollars float)')
+		#self.cur.execute('create table matchs (mIndex int, side varchar(10), price float, size float, dollars float)')
 		self.closeDB()
 
 	def dropMatchdb(self):
