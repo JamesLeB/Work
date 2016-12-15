@@ -28,7 +28,7 @@ def on_message(ws, message):
 
 	if a == 10:
 		print 'Stream running'
-		j.downloadbook()
+		#j.downloadbook()
 
 	a += 1
 
@@ -72,7 +72,7 @@ def on_open(ws):
 	ws.send('{"type": "subscribe","product_id": "BTC-USD"}')
 
 def s():
-	ws=websocket.WebSocketApp("wss://ws-feed.exchange.coinbase.com",on_message = on_message, on_error = on_error, on_close = on_close)
+	ws=websocket.WebSocketApp("wss://ws-feed.gdax.com",on_message = on_message, on_error = on_error, on_close = on_close)
 
 	ws.on_open = on_open
 
