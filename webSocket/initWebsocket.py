@@ -14,8 +14,14 @@ a = 1
 j = james()
 
 
-#db = MySQLdb.connect(host='localhost',user='james',passwd='sorcier',db='dev')
-#cur = db.cursor()
+db = MySQLdb.connect(host='localhost',user='james',passwd='sorcier',db='dev')
+cur = db.cursor()
+
+
+# Create database tables
+j.dropMatchdb()
+j.createMatchdb()
+
 
 def on_message(ws, message):
 	global a
@@ -32,11 +38,11 @@ def on_message(ws, message):
 
 	a += 1
 
-	print str(a) + ' :: ' + message
-	out_file.write(message+'\n')
+	#print str(a) + ' :: ' + message
+	#out_file.write(message+'\n')
 
-	#j = json.loads(message)
-	#mtype = j['type']
+	js = json.loads(message)
+	mtype = js['type']
 
 	#if mtype == 'open':
 		#print str(a) + ' OPEN!!'
@@ -45,16 +51,16 @@ def on_message(ws, message):
 	#elif mtype == 'received':
 		#print str(a) + ' RECEIVED!!'
 	#elif mtype == 'match':
-	#if mtype == 'match':
-		#print str(a) + ' MATCH!!'
+	if mtype == 'match':
+		print str(a) + ' MATCH!!'
 		#print message
-		#dollar = float(j['price']) * float(j['size'])
+		dollar = float(js['price']) * float(js['size'])
 		#print str(a) + ' ' + j['side'] + ' : ' + j['price'] + ' : ' + j['size'] + ' : ' + str(dollar)
 		#print ''
 		#out_file.write(message+'\n')
 
-		#cur.execute("insert into trades (id,side,price,size,dollars) values (%d,'%s',%f,%f,%f)" % (a,j['side'],float(j['price']),float(j['size']),dollar))
-		#db.commit()
+		cur.execute("insert into matchs (id,side,price,size,dollars) values (%d,'%s',%f,%f,%f)" % (a,js['side'],float(js['price']),float(js['size']),dollar))
+		db.commit()
 
 	#else:
 		#print str(a) +' Unknown!! ' + mtype

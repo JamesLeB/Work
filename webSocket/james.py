@@ -50,6 +50,18 @@ class james:
 		self.cur.execute('drop table book')
 		self.closeDB()
 
+	def createMatchdb(self):
+		self.openDB()
+		# Create table
+		self.cur.execute('create table matchs (id int, side varchar(10), price float, size float, dollars float)')
+		self.closeDB()
+
+	def dropMatchdb(self):
+		self.openDB()
+		# Drop table
+		self.cur.execute('drop table matchs')
+		self.closeDB()
+
 	def loadBook(self):
 
 		# Insert
