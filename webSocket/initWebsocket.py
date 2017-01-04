@@ -4,6 +4,7 @@ import websocket
 import json
 import MySQLdb
 import re
+import time
 
 import sys
 #sys.path.append('class')
@@ -12,6 +13,7 @@ from james import *
 out_file = open('out_file','w')
 
 a = 1
+b = time.time()
 j = james()
 
 
@@ -26,6 +28,7 @@ j.createMatchdb()
 
 def on_message(ws, message):
 	global a
+	global b
 	global db
 	global cur
 	global j
@@ -63,7 +66,11 @@ def on_message(ws, message):
 		#print ''
 		out_file.write(message+'\n')
 
-		cur.execute("insert into matchs (mIndex,side,price,size,dollars,time) values (%d,'%s',%f,%f,%f,'%s')" % (a,js['side'],float(js['price']),float(js['size']),dollar,caltime))
+		elapsedTimeInt = time.time() - b
+		c = time.asctime(time.localtime(b))
+		d = time.asctime(time.localtime(time.time()))
+
+		cur.execute("insert into matchs (mIndex,side,price,size,dollars,time,elapsedTime) values (%d,'%s',%f,%f,%f,'%s','%s')" % (a,js['side'],float(js['price']),float(js['size']),dollar,caltime,elapsedTimeInt))
 		db.commit()
 
 	#else:
