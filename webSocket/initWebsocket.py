@@ -42,7 +42,7 @@ def on_message(ws, message):
 
 	a += 1
 
-	#print str(a) + ' :: ' + message
+	print str(a) + ' :: ' + message
 	#out_file.write(message+'\n')
 
 	js = json.loads(message)
@@ -56,7 +56,7 @@ def on_message(ws, message):
 		#print str(a) + ' RECEIVED!!'
 	#elif mtype == 'match':
 	if mtype == 'match':
-		print str(a) + ' MATCH!!'
+		#print str(a) + ' MATCH!!'
 		#print message
 		dollar = float(js['price']) * float(js['size'])
 		caltime = js['time']
@@ -64,7 +64,7 @@ def on_message(ws, message):
 		caltime = re.sub('\.\d{6}Z','',caltime)
 		#print str(a) + ' ' + j['side'] + ' : ' + j['price'] + ' : ' + j['size'] + ' : ' + str(dollar)
 		#print ''
-		out_file.write(message+'\n')
+		#out_file.write(message+'\n')
 
 		elapsedTimeInt = time.time() - b
 		c = time.asctime(time.localtime(b))
