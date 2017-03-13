@@ -50,6 +50,18 @@ class james:
 		self.cur.execute('drop table book')
 		self.closeDB()
 
+	def createBidsdb(self):
+		self.openDB()
+		# Create table
+		self.cur.execute('create table bids (id varchar(100), price float, volume float)')
+		self.closeDB()
+
+	def dropBidsdb(self):
+		self.openDB()
+		# Drop table
+		self.cur.execute('drop table bids')
+		self.closeDB()
+
 	def createMatchdb(self):
 		self.openDB()
 		# Create table
@@ -91,15 +103,31 @@ class james:
 		a = f.read()
 		j = json.loads(a)
 
-		keys = j.keys()
-		for a in keys:
-			print a
+#		print 'print keys'
+#		keys = j.keys()
+#		for a in keys:
+#			print a
 
-		print 'print keys'
-
-		#bids = j['bids']
+		bids = j['bids']
 		#asks = j['asks']
 		#sequence = j['sequence']
+
+		#f1 = open('temp','w')
+		#f1.write(json.dumps(bids))
+
+		print 'Create bid table'
+		self.dropBidsdb()
+		self.createBidsdb()
+
+		self.openDB()
+		for a in bids:
+			print a
+			self.cur.execute("insert into bids (id,price,volume) values ('%s',%f,%f)" % (a[2],float(a[0]),float(a[1])))
+		
+		self.db.commit()
+		self.closeDB()
+
+		print 'Book read'
 
 	def getBook(self):
 		#url = 'https://api.exchange.coinbase.com/products/BTC-USD/book?level=3'
