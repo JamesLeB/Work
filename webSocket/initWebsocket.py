@@ -42,6 +42,9 @@ def on_message(ws, message):
 		print 'Stream running'
 		#j.downloadbook()
 
+	if a > 10:
+		print str(a)
+
 	a += 1
 
 	#print str(a) + ' :: ' + message
@@ -50,30 +53,41 @@ def on_message(ws, message):
 	js = json.loads(message)
 	mtype = js['type']
 
-	#if mtype == 'open':
-		#print str(a) + ' OPEN!!'
+#	if mtype == 'open':
+
+#		caltime = js['time']
+#		caltime = re.sub('T',' ',caltime)
+#		caltime = re.sub('\.\d{6}Z','',caltime)
+#		elapsedTimeInt = time.time() - b
+#		c = time.asctime(time.localtime(b))
+#		d = time.asctime(time.localtime(time.time()))
+#		out_file.write(str(a)+' :: '+message+'\n')
+#		print str(a) + ' OPEN!!  ' + c + ' :: ' + d
+
 	#elif mtype == 'done':
 		#print str(a) + ' DONE!!'
 	#elif mtype == 'received':
 		#print str(a) + ' RECEIVED!!'
 	#elif mtype == 'match':
-	if mtype == 'match':
-		print str(a) + ' MATCH!!'
-		#print message
-		dollar = float(js['price']) * float(js['size'])
-		caltime = js['time']
-		caltime = re.sub('T',' ',caltime)
-		caltime = re.sub('\.\d{6}Z','',caltime)
-		#print str(a) + ' ' + j['side'] + ' : ' + j['price'] + ' : ' + j['size'] + ' : ' + str(dollar)
-		#print ''
-		#out_file.write(message+'\n')
 
-		elapsedTimeInt = time.time() - b
-		c = time.asctime(time.localtime(b))
-		d = time.asctime(time.localtime(time.time()))
-
-		cur.execute("insert into matchs (mIndex,side,price,size,dollars,time,elapsedTime) values (%d,'%s',%f,%f,%f,'%s','%s')" % (a,js['side'],float(js['price']),float(js['size']),dollar,caltime,elapsedTimeInt))
-		db.commit()
+#	if mtype == 'match':
+#		#print message
+#		dollar = float(js['price']) * float(js['size'])
+#		caltime = js['time']
+#		caltime = re.sub('T',' ',caltime)
+#		caltime = re.sub('\.\d{6}Z','',caltime)
+#		#print str(a) + ' ' + j['side'] + ' : ' + j['price'] + ' : ' + j['size'] + ' : ' + str(dollar)
+#		#print ''
+#		#out_file.write(message+'\n')
+#
+#		elapsedTimeInt = time.time() - b
+#		c = time.asctime(time.localtime(b))
+#		d = time.asctime(time.localtime(time.time()))
+#
+#		cur.execute("insert into matchs (mIndex,side,price,size,dollars,time,elapsedTime) values (%d,'%s',%f,%f,%f,'%s','%s')" % (a,js['side'],float(js['price']),float(js['size']),dollar,caltime,elapsedTimeInt))
+#		db.commit()
+#
+#		print str(a) + ' MATCH!!'
 
 	#else:
 		#print str(a) +' Unknown!! ' + mtype
