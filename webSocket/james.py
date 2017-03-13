@@ -78,12 +78,28 @@ class james:
 		print 'loading asks'
 
 	def downloadbook(self):
-		url = 'https://api.exchange.coinbase.com/products/BTC-USD/book?level=3'
+		url = 'https://api.gdax.com/products/BTC-USD/book?level=3'
 		response = requests.get(url)
 		text = response.content
 		f = open('book','w')
 		f.write(text)
 		print 'Book saved to disk'
+
+	def readbook(self):
+		print 'reading book'
+		f = open('book','r')
+		a = f.read()
+		j = json.loads(a)
+
+		keys = j.keys()
+		for a in keys:
+			print a
+
+		print 'print keys'
+
+		#bids = j['bids']
+		#asks = j['asks']
+		#sequence = j['sequence']
 
 	def getBook(self):
 		#url = 'https://api.exchange.coinbase.com/products/BTC-USD/book?level=3'

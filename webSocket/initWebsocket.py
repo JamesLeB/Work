@@ -12,7 +12,7 @@ from james import *
 
 out_file = open('out_file','w')
 
-a = 1
+a = 0
 b = time.time()
 print 'Call function to make james object'
 j = james()
@@ -35,17 +35,21 @@ def on_message(ws, message):
 	global cur
 	global j
 	
+	a += 1
+
 	if a == 1:
 		print 'First message recieved'
 
 	if a == 10:
 		print 'Stream running'
-		#j.downloadbook()
 
-	if a > 10:
-		print str(a)
+		print 'Download Book'
+		j.downloadbook()
+		j.readbook()
 
-	a += 1
+#	if a > 10:
+#		print str(a)
+
 
 	#print str(a) + ' :: ' + message
 	#out_file.write(message+'\n')
