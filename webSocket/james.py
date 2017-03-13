@@ -23,7 +23,7 @@ class james:
 		#b = f.read()
 
 		#self.book = json.loads(b)
-		print 'Creating james object'
+		print 'From james class: finished __init__'
 
 	def test(self):
 		#print self.book
